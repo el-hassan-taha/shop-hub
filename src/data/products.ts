@@ -17,6 +17,7 @@ export interface Product {
     name: string;
     options: string[];
   }[];
+  isNew?: boolean;
 }
 
 export const categories = [
@@ -155,8 +156,8 @@ export const products: Product[] = [
     price: 1299.99,
     category: "Fashion",
     subcategory: "Accessories",
-    image: "https://images.unsplash.com/photo-1587836374228-4c8b8c7f0c9e?w=500&h=500&fit=crop",
-    images: ["https://images.unsplash.com/photo-1587836374228-4c8b8c7f0c9e?w=500&h=500&fit=crop"],
+    image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    images: ["https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
     rating: 4.9,
     reviewCount: 123,
     stock: 15,
@@ -640,7 +641,7 @@ export const products: Product[] = [
     price: 89.99,
     category: "Toys & Games",
     subcategory: "Collectibles",
-    image: "https://images.unsplash.com/photo-1587221488547-8ea17d23b7b8?w=500&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1654749053575-0777bbb7fb4c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     images: ["https://images.unsplash.com/photo-1587221488547-8ea17d23b7b8?w=500&h=500&fit=crop"],
     rating: 4.7,
     reviewCount: 289,

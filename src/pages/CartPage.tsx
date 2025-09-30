@@ -9,12 +9,18 @@ export const CartPage = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center py-20">
-        <div className="text-center space-y-4">
-          <ShoppingBag className="h-24 w-24 mx-auto text-muted-foreground" />
-          <h2 className="text-2xl font-bold">Your cart is empty</h2>
+      <div className="min-h-screen flex items-center justify-center py-20 relative">
+        <div className="absolute inset-0 gradient-mesh opacity-10 -z-10" />
+        <div className="text-center space-y-6 glass-card p-12 rounded-2xl border-white/10 max-w-md mx-auto animate-fade-in">
+          <div className="w-24 h-24 mx-auto rounded-full glass-card border-white/20 flex items-center justify-center">
+            <ShoppingBag className="h-12 w-12 text-muted-foreground" />
+          </div>
+          <h2 className="text-2xl font-bold gradient-text text-glow">Your cart is empty</h2>
           <p className="text-muted-foreground">Add some products to get started</p>
-          <Button onClick={() => setCurrentPage("shop")} className="gap-2">
+          <Button 
+            onClick={() => setCurrentPage("shop")} 
+            className="gap-2 glass-card border-white/20 hover-glow ripple"
+          >
             Browse Products
             <ArrowRight className="h-4 w-4" />
           </Button>
@@ -33,9 +39,13 @@ export const CartPage = () => {
   const total = cartTotal + shippingCost + tax;
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-8 relative">
+      <div className="absolute inset-0 gradient-mesh opacity-10 -z-10" />
+      
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8">Shopping Cart</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-glow text-center animate-fade-in-up">
+          Shopping Cart
+        </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}

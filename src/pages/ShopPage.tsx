@@ -67,29 +67,32 @@ export const ShopPage = () => {
   };
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-8 relative">
+      {/* Background Elements */}
+      <div className="absolute inset-0 gradient-mesh opacity-10 -z-10" />
+      
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Shop</h1>
-          <p className="text-muted-foreground">
+        {/* Header with Enhanced Styling */}
+        <div className="mb-8 text-center animate-fade-in-up">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 gradient-text text-glow">Shop</h1>
+          <p className="text-muted-foreground text-lg">
             {searchQuery
-              ? `Search results for "${searchQuery}"`
+              ? `Search results for "${searchQuery}" (${filteredProducts.length} items)`
               : "Browse our collection of premium products"}
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Filters Sidebar */}
-          <aside className={`lg:w-64 space-y-6 ${showFilters ? "block" : "hidden lg:block"}`}>
-            <div className="bg-card border border-border rounded-lg p-6 space-y-6">
+          {/* Enhanced Filters Sidebar */}
+          <aside className={`lg:w-64 space-y-6 animate-fade-in ${showFilters ? "block" : "hidden lg:block"}`}>
+            <div className="glass-card border-white/10 rounded-xl p-6 space-y-6 sticky top-24">
               <div className="flex items-center justify-between">
-                <h2 className="font-semibold text-lg">Filters</h2>
+                <h2 className="font-semibold text-lg gradient-text">Filters</h2>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={clearFilters}
-                  className="text-xs"
+                  className="text-xs hover-glow glass-card border-white/10"
                 >
                   Clear All
                 </Button>
@@ -168,19 +171,36 @@ export const ShopPage = () => {
               </div>
             </div>
 
-            {/* Products */}
+            {/* Products Grid with Stagger Animation */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-stagger">
+                {filteredProducts.map((product, index) => (
+                  <div
+                    key={product.id}
+                    className="animate-fade-in-up"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    <ProductCard product={product} />
+                  </div>
                 ))}
               </div>
             ) : (
-              <div className="text-center py-20">
-                <p className="text-lg text-muted-foreground mb-4">
-                  No products found matching your criteria
-                </p>
-                <Button onClick={clearFilters}>Clear Filters</Button>
+              <div className="text-center py-16 animate-fade-in">
+                <div className="max-w-md mx-auto space-y-4">
+                  <div className="w-24 h-24 mx-auto rounded-full glass-card border-white/20 flex items-center justify-center">
+                    <SlidersHorizontal className="h-12 w-12 text-muted-foreground" />
+                  </div>
+                  <h3 className="text-xl font-semibold">No products found</h3>
+                  <p className="text-muted-foreground">
+                    Try adjusting your filters or search terms
+                  </p>
+                  <Button
+                    onClick={clearFilters}
+                    className="glass-card border-white/20 hover-glow ripple"
+                  >
+                    Clear Filters
+                  </Button>
+                </div>
               </div>
             )}
           </div>

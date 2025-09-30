@@ -1,6 +1,7 @@
 import { AppProvider, useApp } from "@/contexts/AppContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { HomePage } from "./HomePage";
 import { ShopPage } from "./ShopPage";
 import { CategoriesPage } from "./CategoriesPage";
@@ -90,10 +91,15 @@ const AppContent = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Global Animated Background */}
+      <div className="fixed inset-0 gradient-animated opacity-20 -z-20" />
+      <div className="fixed inset-0 floating-shapes opacity-30 -z-20" />
+      
       <Header />
-      <main className="flex-1">{renderPage()}</main>
+      <main className="flex-1 relative z-10">{renderPage()}</main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
