@@ -29,7 +29,7 @@ A modern, high-performance e-commerce website built with cutting-edge web techno
 
 ## 🚀 Demo
 
-Visit the live demo: [ShopHub Live Demo](https://your-demo-url.com)
+Visit the live demo: [ShopHub Live Demo](https://online-shop-hub.vercel.app/)
 
 ## 🛠️ Installation
 
