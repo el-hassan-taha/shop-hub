@@ -2,8 +2,6 @@
 
 A modern, high-performance e-commerce website built with cutting-edge web technologies and featuring stunning glassmorphism design.
 
-![ShopHub Banner](https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=400&fit=crop&crop=center)
-
 ## ✨ Features
 
 ### 🎨 **Modern UI/UX**
